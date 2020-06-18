@@ -70,4 +70,11 @@ class scaffold_templates {
 		return preg_replace('/[^a-zA-Z0-9_]+/', '_', $s);
 	}
 
+	/**
+	 * Replace `<br>` with responsive line breaks
+	 */
+	public function br2lb($str, $classname = "lb") {
+		return str_replace(array("<br>", "<br/>", "<br />"), '<span class="' . $classname . '"></span>', $str);
+	}
+
 }

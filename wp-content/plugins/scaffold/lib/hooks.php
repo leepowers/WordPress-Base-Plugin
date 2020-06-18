@@ -22,7 +22,6 @@ class scaffold_hooks {
 
 	/**
 	 * Setup first UI resources (CSS, JavaScript)
-	 * - Enqueue CSS reset
 	 * - Enqueue jQuery
 	 */
 	public function ui_resources_first() {

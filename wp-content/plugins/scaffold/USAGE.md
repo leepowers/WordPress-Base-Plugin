@@ -7,7 +7,7 @@ Please search and replace the following strings after copying to your WordPress 
 **Note:** Search and replace should be CASE-sensitive!
 
 * `constants.php`
-  * Set the plugin version if needed. Should be the same as in the `style.css` header/preamble.
+  * Set the plugin version if needed. Should be the same as in the `plugin.php` header/preamble.
 * `plugin.php`
   * Customize the plugin preamble
 * Search and replace:
@@ -40,13 +40,13 @@ Please search and replace the following strings after copying to your WordPress 
 ## Verify
 
 	/usr/bin/sass /Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/_plugin.scss:/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/css/plugin.css
-	
+
 Double-check the output of `css/plugin.css`
 
 ## Auto-compile on file save
 
 	launchctl load -w ~/Library/LaunchAgents/scaffold.scss.plist
-	
+
 
 # Cleanup
 

@@ -10,7 +10,7 @@ if (!defined("SCAFFOLD_VERSION")) {
 	 * Current plugin version
 	 * @var string
 	 */
-	define("SCAFFOLD_VERSION", "0.0.1");
+	define("SCAFFOLD_VERSION", "0.1.0");
 }
 
 if (!defined("SCAFFOLD_SLUG")) {

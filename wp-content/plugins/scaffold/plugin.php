@@ -3,7 +3,7 @@
  * Plugin Name: Scaffold Plugin
  * Plugin URI: http://leepowers.co/
  * Description: Custom plugin description
- * Version: 0.0.1
+ * Version: 0.1.0
  * Author: Lee Powers
  * Author URI: http://leepowers.co/
  * Text Domain: scaffold

@@ -18,6 +18,8 @@ class scaffold_hooks {
 		add_action("admin_enqueue_scripts", array(&$this, "ui_admin_last"), PHP_INT_MAX - SCAFFOLD_UI_PRECEDENCE);
         // Setup image sizes
 		$this->image_sizes();
+		// ACF options pages
+		$this->acf_option_pages();
 	}
 
 	/**
@@ -64,6 +66,23 @@ class scaffold_hooks {
 		add_image_size("custom-size", 160, 160, true);
 		set_post_thumbnail_size(160, 160, true);  // Default thumbnail size
 		*/
+	}
+
+	/**
+	 * Setup plugin ACF option pages
+	 */
+	public function acf_option_pages() {
+		if (function_exists("acf_add_options_page")) {
+			$parent = acf_add_options_page(array(
+				"page_title" => __("Scaffold Settings", "scaffold"),
+				"menu_title" => __("Scaffold", "scaffold"),
+			));
+			acf_add_options_sub_page(array(
+				"page_title" => __("General Settings", "scaffold"),
+				"menu_title" => __("General", "scaffold"),
+				"parent_slug" => $parent['menu_slug'],
+			));
+		}
 	}
 
 }

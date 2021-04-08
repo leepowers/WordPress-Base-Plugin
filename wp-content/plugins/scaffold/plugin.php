@@ -36,5 +36,8 @@ function scaffold_dump() {
  */
 require_once "constants.php";
 require_once SCAFFOLD_LIB . "/core.php";
+
+register_activation_hook(__FILE__, array(scaffold_core::instance(), "activation_hook"));
+
 scaffold_core::instance()->bootstrap();
 

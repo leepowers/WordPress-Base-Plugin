@@ -71,6 +71,12 @@ class scaffold_core {
 	}
 
 	/**
+	 * Run plugin activation tasks, like dbDelta()
+	 */
+	public function activation_hook() {
+	}
+
+	/**
 	 * Check if current user is a site admin
 	 */
 	public function is_admin() {
@@ -82,6 +88,52 @@ class scaffold_core {
 	 */
 	public function is_editor() {
 		return current_user_can('editor') || current_user_can('administrator');
+	}
+
+	/**
+	 * Output correct preflight for all OPTIONS calls. 
+	 */
+	public function cors_preflight() {
+		if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
+			status_header(200);
+			$this->cors_headers();
+			die;
+		}
+	}
+
+	/**
+	 * Output CORS headers
+	 */
+	public function cors_headers() {
+		header("Access-Control-Allow-Origin: *");
+		header("Access-Control-Allow-Headers: *");
+		header("Access-Control-Allow-Methods: *");
+		header("X-Frame-Options", "SAMEORIGIN");
+	}
+
+	/**
+	 * Send a simple error message JSON response
+	 */
+	public function json_send_error($message) {
+		$response = [
+			"data" => [],
+			"message" => $message,
+			"status" => "error",
+		];
+		$this->json_send_response($response);
+	}
+
+	/**
+	 * Send response with correct HTTP header
+	 */
+	public function json_send_response($response) {
+		$this->cors_headers();
+		if ($response["status"] === "error") {
+			status_header(200);
+		} else {
+			status_header(200);
+		}
+		wp_send_json($response);
 	}
 
 }

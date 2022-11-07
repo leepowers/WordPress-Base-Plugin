@@ -64,6 +64,8 @@ class scaffold_core {
 	 * Bootstrap / startup the theme
 	 */
 	public function bootstrap() {
+		// Enable CORS for all OPTIONS requests
+		add_action("init", array(&$this, "cors_preflight"));
 		// Bind actions and filters
 		$this->hooks->bind();
 		$this->shortcodes->bind();

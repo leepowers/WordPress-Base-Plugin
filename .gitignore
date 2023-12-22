@@ -19,4 +19,5 @@ wp-content/themes/*
 
 # Ignore DS_Store in all directories
 .DS_Store
+Thumbs.db
 

@@ -21,32 +21,37 @@ Please search and replace the following strings after copying to your WordPress 
 
 ## Example file: plugin.scss.plist
 
-	<plist version="1.0">
-	<dict>
-	    <key>Label</key>
-	    <string>scaffold.scss</string>
-	    <key>ProgramArguments</key>
-	    <array>
-	        <string>/usr/bin/sass</string>
-	        <string>/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/_plugin.scss:/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/css/plugin.css</string>
-	    </array>
-	    <key>WatchPaths</key>
-	    <array>
-	        <string>/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/</string>
-	    </array>
-	</dict>
-	</plist>
+```xml
+<plist version="1.0">
+<dict>
+		<key>Label</key>
+		<string>scaffold.scss</string>
+		<key>ProgramArguments</key>
+		<array>
+				<string>/usr/bin/sass</string>
+				<string>/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/_plugin.scss:/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/css/plugin.css</string>
+		</array>
+		<key>WatchPaths</key>
+		<array>
+				<string>/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/</string>
+		</array>
+</dict>
+</plist>
+```
 
 ## Verify
 
-	/usr/bin/sass /Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/_plugin.scss:/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/css/plugin.css
+```bash
+/usr/bin/sass /Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/scss/_plugin.scss:/Users/leepowers/Clients/client/wp/wp-content/plugins/scaffold/ui/css/plugin.css
+```
 
 Double-check the output of `css/plugin.css`
 
 ## Auto-compile on file save
 
-	launchctl load -w ~/Library/LaunchAgents/scaffold.scss.plist
-
+```bash
+launchctl load -w ~/Library/LaunchAgents/scaffold.scss.plist
+```
 
 # Cleanup
 

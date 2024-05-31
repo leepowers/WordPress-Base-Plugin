@@ -15,7 +15,8 @@ Please search and replace the following strings after copying to your WordPress 
   * The `scaffold_` prefix with a unique identifier for your plugin
   * The `scaffold-` prefix with a unique identifier for your plugin
   * The `"scaffold"` quoted string with a unqiue identifier for your plugin
-
+	* `Scaffold` - for the plugin name
+	* `scaffold` - finally replace with unique identifier for your plugin
 
 # LaunchCTL (OSX Only)
 

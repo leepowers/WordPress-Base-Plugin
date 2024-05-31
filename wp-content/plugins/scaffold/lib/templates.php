@@ -74,7 +74,7 @@ class scaffold_templates {
 	 * Replace `<br>` with responsive line breaks
 	 */
 	public function br2lb($str, $classname = "lb") {
-		return str_replace(array("<br>", "<br/>", "<br />"), '<span class="' . $classname . '"></span>', $str);
+		return str_replace(["<br>", "<br/>", "<br />"], '<span class="' . $classname . '"></span>', $str);
 	}
 
 }

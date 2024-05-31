@@ -3,7 +3,7 @@
 require_once SCAFFOLD_LIB . "/hooks.php";
 require_once SCAFFOLD_LIB . "/shortcodes.php";
 require_once SCAFFOLD_LIB . "/templates.php";
-require_once SCAFFOLD_LIB . "/cpt.php";
+#require_once SCAFFOLD_LIB . "/cpt.php";
 
 /**
  * Core plugin functionality
@@ -47,7 +47,7 @@ class scaffold_core {
 	 * Custom post type
 	 * @var scaffold_cpt
 	 */
-	public $cpt = null;
+	#public $cpt = null;
 
 	/**
 	 * Constructor.
@@ -57,7 +57,7 @@ class scaffold_core {
 		$this->hooks = new scaffold_hooks;
 		$this->templates = new scaffold_templates;
 		$this->shortcodes = new scaffold_shortcodes;
-		$this->cpt = new scaffold_cpt;
+		#$this->cpt = new scaffold_cpt;
 	}
 	
 	/**
@@ -65,11 +65,11 @@ class scaffold_core {
 	 */
 	public function bootstrap() {
 		// Enable CORS for all OPTIONS requests
-		add_action("init", array(&$this, "cors_preflight"));
+		# add_action("init", [&$this, "cors_preflight"]);
 		// Bind actions and filters
 		$this->hooks->bind();
 		$this->shortcodes->bind();
-		$this->cpt->bind();
+		#$this->cpt->bind();
 	}
 
 	/**

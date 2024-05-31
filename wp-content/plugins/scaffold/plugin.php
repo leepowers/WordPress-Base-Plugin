@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Scaffold Plugin
+ * Plugin Name: Scaffold
  * Plugin URI: http://leepowers.co/
  * Description: Custom plugin description
  * Version: 0.1.0
@@ -37,7 +37,7 @@ function scaffold_dump() {
 require_once "constants.php";
 require_once SCAFFOLD_LIB . "/core.php";
 
-register_activation_hook(__FILE__, array(scaffold_core::instance(), "activation_hook"));
+register_activation_hook(__FILE__, [scaffold_core::instance(), "activation_hook"]);
 
 scaffold_core::instance()->bootstrap();
 

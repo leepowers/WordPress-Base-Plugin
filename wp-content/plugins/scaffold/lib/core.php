@@ -138,4 +138,30 @@ class scaffold_core {
 		wp_send_json($response);
 	}
 
+	/**
+	 * Escape a scalar value for use in an SQL query
+	 */
+	public function esc_sql($v) {
+		if (is_numeric($v)) {
+			return $v;
+		} else {
+			return sprintf("'%s'", esc_sql($v));
+		}
+	}
+
+	/**
+	 * Escape a scalar value for use in an SQL LIKE query
+	 */
+	public function esc_sql_like($v) {
+		global $wpdb;
+		return sprintf("'%%%s%%'", str_replace('%', '\\%', $wpdb->remove_placeholder_escape(esc_sql($v))));
+	}
+
+	/**
+	 * Escape an SQL name, such as a table name or column name
+	 */
+	public function esc_sql_name($v) {
+		return sprintf("`%s`", sanitize_key($v));
+	}
+
 }
